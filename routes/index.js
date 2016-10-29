@@ -11,7 +11,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 
 //======== GET ROUTES ========= //
 router.get('/', function(req, res) {
-    console.log(req.session);
+   // console.log(req.session);
     if(req.session != null) {
         user = req.session;
     } else {
@@ -22,7 +22,8 @@ router.get('/', function(req, res) {
 
 router.get('/profile', function(req, res){
     console.log(req.session);
-    res.render('profile');
+    var user = req.session;
+    res.render('profile', { user: user});
 });
 
 //For Logout

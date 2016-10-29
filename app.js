@@ -37,7 +37,7 @@ app.use(stormpath.init(app, {
     postLoginHandler: function (account, req, res) {
         req.session.user = account;
         console.log(account);
-        res.redirect('/profile');
+        res.redirect('/profile', {account:account});
     },
     postLogoutHandler: function (account, req, res) {
         req.session.reset();
