@@ -37,7 +37,7 @@ app.use(stormpath.init(app, {
     postLoginHandler: function (account, req, res) {
         req.session.user = account;
         console.log(account);
-        res.redirect('/profile');
+        res.redirect('/profile', {account:account});
     },
     postLogoutHandler: function (account, req, res) {
         req.session.reset();
@@ -63,6 +63,7 @@ mongoose.connect('mongodb://localhost/bric', function(err, res){
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/', routes);
 app.use('/profile', stormpath.loginRequired, routes);
+app.use('/logout',routes);
 
 // app.get('/', function(req, res) {
 //     res.render('home');

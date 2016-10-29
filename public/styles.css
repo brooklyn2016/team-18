@@ -1,3 +1,6 @@
+body {
+    background-color: #a9a9a9;
+}
 #navBar {
     background-color: #2f2f2f;
 }
@@ -45,4 +48,14 @@
 
 .yesMarginTop {
     margin-top: 1em;
+}
+
+#intro {
+    color: white;
+}
+
+#uploadedLink {
+    margin-top: 5em;
+    background-color: gainsboro;
+    border-radius: 0.5em;
 }
