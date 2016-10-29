@@ -14,7 +14,7 @@ public class logInPage extends AppCompatActivity {
     }
 
     public void goToUpload(View view){
-        Intent intent = new Intent(this,UploadPage.class);
+        Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
 }

@@ -1,7 +1,12 @@
 package com.example.tarek.testing;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +21,8 @@ import java.util.Date;
 import static com.example.tarek.testing.R.id.lastName;
 
 public class MainActivity extends AppCompatActivity {
+    public static boolean LOGGED=false;
+    private static final int SELECT_PHOTO = 100;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     ViewPagerAdapter adapter;
@@ -50,7 +57,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToLogIn(View view){
-        viewPager.setCurrentItem(1);
+        if(!LOGGED)
+            viewPager.setCurrentItem(1);
+        else
+            uploadVideo(view);
     }
 
     public void logIn(View view){
@@ -65,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new IntroPage(),"UPLAOD");
+        adapter.addFragment(new IntroPage(),"UPLOAD");
         adapter.addFragment(new ProfilePage(),"PROFILE");
         viewPager.setAdapter(adapter);
     }
@@ -86,5 +96,37 @@ public class MainActivity extends AppCompatActivity {
         userSince.append(currentDateandTime);
         if(bundle.getString("phonenumber").equals(""))
             phoneNumber.setVisibility(View.GONE);
+    }
+
+    public void uploadVideo(View view){
+        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+        photoPickerIntent.setType("image/*");
+        startActivityForResult(photoPickerIntent, SELECT_PHOTO);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent imageReturnedIntent) {
+        if (resultCode != RESULT_CANCELED && imageReturnedIntent!=null) {
+            super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
+
+            switch (requestCode) {
+                case SELECT_PHOTO:
+                    if (resultCode == RESULT_OK) {
+                        Uri selectedImage = imageReturnedIntent.getData();
+                        String[] filePathColumn = {MediaStore.Images.Media.DATA};
+
+                        Cursor cursor = getContentResolver().query(
+                                selectedImage, filePathColumn, null, null, null);
+                        cursor.moveToFirst();
+
+                        int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                        String filePath = cursor.getString(columnIndex);
+                        cursor.close();
+
+
+                        Bitmap yourSelectedImage = BitmapFactory.decodeFile(filePath);
+                    }
+            }
+        }
     }
 }

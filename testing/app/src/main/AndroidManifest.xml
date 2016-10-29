@@ -17,7 +17,6 @@
         </activity>
         <activity android:name=".logInPage" />
         <activity android:name=".signUpPage" />
-        <activity android:name=".UploadPage" />
         <activity android:name=".ProfileData"></activity>
     </application>
 
