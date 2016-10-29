@@ -1,0 +1,34 @@
+.row{
+	background: red;
+}
+.col-md-1, .col-md-6,
+.col-md-4, .col-md-8, .col-md-2,
+.col-md-5{
+	border: solid 1px black;
+}
+
+/* Layout Page */
+.container{
+	height: 100vh;
+	border: solid 1px black;
+}
+#banner{
+	height: 150px;
+	background: #fafafa;
+}
+
+#nav{
+	min-height: 50vh;
+}
+
+#main{
+
+}
+
+#sidebar{
+
+}
+
+#footer{
+	height: 50px;
+}
