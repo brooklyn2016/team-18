@@ -26,9 +26,11 @@
     margin-bottom: 1em;
 }
 
-/*.btn {*/
-    /*color: #f9da00;*/
-/*}*/
+.btn {
+    border: solid #f9da00;
+    border-radius: 0.1em;
+    margin-right: 1em;
+}
 
 #uploadBtn {
     background-color:  #f9da00;
@@ -39,4 +41,8 @@
 
 .alignCenter {
     text-align: center;
+}
+
+.yesMarginTop {
+    margin-top: 1em;
 }
