@@ -63,6 +63,7 @@ mongoose.connect('mongodb://localhost/bric', function(err, res){
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/', routes);
 app.use('/profile', stormpath.loginRequired, routes);
+app.use('/logout',routes);
 
 // app.get('/', function(req, res) {
 //     res.render('home');
