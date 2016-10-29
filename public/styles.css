@@ -6,26 +6,22 @@
     float: right;
 }
 
-
 #bgPicture {
-    width: 1280px;
+    background-image: url("/images/main_bg.jpg");
+    height: 600px;
 }
 
 .container-fluid {
     padding: 0;
 }
 
-.middle a {
-    vertical-align: middle;
-}
-
 #logo {
-    margin: 1em 1em 1em 1em;
+    margin: 1em 1em 1em 4em;
     width: 100px;
     height: 50px;
 }
 
 .yesMarginY {
-    margin-top: 1em;
+    margin-top: 1.5em;
     margin-bottom: 1em;
 }
