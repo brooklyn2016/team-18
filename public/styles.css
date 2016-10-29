@@ -25,3 +25,18 @@
     margin-top: 1.5em;
     margin-bottom: 1em;
 }
+
+/*.btn {*/
+    /*color: #f9da00;*/
+/*}*/
+
+#uploadBtn {
+    background-color:  #f9da00;
+    text-align: center;
+    margin-top: 15em;
+}
+
+
+.alignCenter {
+    text-align: center;
+}
