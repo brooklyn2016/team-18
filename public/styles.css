@@ -1,0 +1,42 @@
+#navBar {
+    background-color: #2f2f2f;
+}
+
+.floatRight {
+    float: right;
+}
+
+#bgPicture {
+    background-image: url("/images/main_bg.jpg");
+    height: 600px;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+#logo {
+    margin: 1em 1em 1em 4em;
+    width: 100px;
+    height: 50px;
+}
+
+.yesMarginY {
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+/*.btn {*/
+    /*color: #f9da00;*/
+/*}*/
+
+#uploadBtn {
+    background-color:  #f9da00;
+    text-align: center;
+    margin-top: 15em;
+}
+
+
+.alignCenter {
+    text-align: center;
+}

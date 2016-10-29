@@ -5,14 +5,38 @@
     <title>Bric</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/custom.css">
-    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <!--<link rel="stylesheet" href="css/custom.css">-->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="container-fluid">
-    <div class="row">
-
+    <div id="navBar" class="row">
+        <div class="col-md-2">
+            <img id="logo" src="/images/logo.png"/>
+        </div>
+        <div class="col-xs-offset-6 col-sm-offset-8 col-md-offset-10 ">
+            <a href="/login" class="btn btn-link yesMarginY">Login</a>
+            <a href="/register" class="btn btn-link yesMarginY">Register</a>
+        </div>
     </div>
+    <form>
+        <div id="bgPicture" class="row alignCenter">
+            <button id="uploadBtn" type="submit" class="btn btn-lg"> Upload My Video!</button>
+        </div>
+    </form>
+    <div class="container">
+        <div id="intro" class="row yesMarginY">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <p>BRIC is the leading presenter of free cultural programming in Brooklyn, and one of the largest in New
+                    York City. We present
+                    and incubate new work by artists  </br> and media-makers who reflect the diversity that surrounds
+                    us.</br>
+                    LEARN MORE ABOUT BRIC
+                </p>
+            </div>
+        </div>
+    </div>
+
 </div>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>
