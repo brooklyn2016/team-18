@@ -42,6 +42,9 @@ body {
     background-color:  #f9da00;
     text-align: center;
     margin-top: 15em;
+    width:25%;
+    font-size: larger;
+    font-weight: 600;
 }
 
 
@@ -61,4 +64,9 @@ body {
     margin-top: 5em;
     background-color: gainsboro;
     border-radius: 0.5em;
+}
+
+#dot {
+    padding-left: 0;
+    margin-left: 0;
 }
