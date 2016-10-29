@@ -18,6 +18,7 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static android.view.View.GONE;
 import static com.example.tarek.testing.R.id.lastName;
 
 public class MainActivity extends AppCompatActivity {
@@ -54,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
         dataLayout = (LinearLayout) findViewById(R.id.dataLayout);
         loginLayout = (LinearLayout) findViewById(R.id.loginLayout);
         intent = getIntent();
+        if(LOGGED && dataLayout!=null && loginLayout!=null) {
+            dataLayout.setVisibility(View.VISIBLE);
+            loginLayout.setVisibility(GONE);
+        }
     }
 
     public void goToLogIn(View view){
@@ -82,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
     void setUpData(){
         dataLayout.setVisibility(View.VISIBLE);
-        loginLayout.setVisibility(View.GONE);
+        loginLayout.setVisibility(GONE);
         bundle = getIntent().getExtras();
         fullName = (TextView) findViewById(R.id.fullName);
         phoneNumber = (TextView) findViewById(R.id.phone_number);
@@ -95,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         String currentDateandTime = sdf.format(new Date());
         userSince.append(currentDateandTime);
         if(bundle.getString("phonenumber").equals(""))
-            phoneNumber.setVisibility(View.GONE);
+            phoneNumber.setVisibility(GONE);
     }
 
     public void uploadVideo(View view){
