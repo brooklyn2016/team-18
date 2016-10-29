@@ -5,13 +5,11 @@
     <title>Bric</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/bootstrap.css">
-    <!--<link rel="stylesheet" href="css/custom.css">-->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="container-fluid">
     <div id="navBar" class="row">
-
         <div class="col-md-2">
             <img id="logo" src="/images/logo.png"/>
         </div>
@@ -19,13 +17,38 @@
             <a href="/login" class="btn btn-link yesMarginY">Login</a>
             <a href="/register" class="btn btn-link yesMarginY">Register</a>
         </div>
-
     </div>
     <form>
         <div id="bgPicture" class="row alignCenter">
-            <button id="uploadBtn" type="submit" class="btn btn-lg"> Upload My Video!</button>
+            <button id="uploadBtn" type="button" class="btn" data-toggle="modal" data-target="#myModal"> Upload Your Video Here</button>
         </div>
     </form>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Files </h4>
+                </div>
+                <div class="modal-body row">
+                    <div class="col-md-4">
+                        <label>Choose a media file </label>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control"/>
+                    </div>
+                    <div  id="dot" class="col-md-1">
+                        <input type="text" class="form-control" placeholder="..." disabled />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <div id="thirdDiv" class="container yesMarginY">
         <div class="row yesMarginY">
             <div class="col-xs-12 col-sm-12 col-md-6">
@@ -56,14 +79,6 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-            </div>
-        </div>
-    </div>
-
 </div>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>
