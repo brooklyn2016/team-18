@@ -27,7 +27,7 @@ public class signUpPage extends AppCompatActivity {
     }
 
     public void goToProfile(View view) {
-        Intent intent = new Intent(signUpPage.this, ProfileData.class);
+        Intent intent = new Intent(signUpPage.this, MainActivity.class);
         if (firstName.getText().toString().equals("") || lastName.getText().toString().equals("")
                 || emailAddress.getText().toString().equals("") || password.getText().toString().equals(""))
             Toast.makeText(this, "Some fields are empty", Toast.LENGTH_SHORT).show();
@@ -37,6 +37,7 @@ public class signUpPage extends AppCompatActivity {
             intent.putExtra("phonenumber", phoneNumber.getText().toString());
             intent.putExtra("emailaddress", emailAddress.getText().toString());
             intent.putExtra("from", false);
+            MainActivity.LOGGED=true;
             startActivity(intent);
         }
     }

@@ -25,6 +25,7 @@ public class logInPage extends AppCompatActivity {
             Toast.makeText(this, "Some fields are empty", Toast.LENGTH_SHORT).show();
         else {
             Intent intent = new Intent(this, MainActivity.class);
+            MainActivity.LOGGED = true;
             startActivity(intent);
         }
     }
