@@ -21,18 +21,17 @@ router.get('/', function(req, res) {
 });
 
 router.get('/profile', function(req, res){
-    console.log(req.session);
-    var user = req.session;
-    res.render('profile', { user: user});
+   // console.log(req.session);
+    res.render('profile');
 });
 
 //For Logout
-router.post('/logout', function(req, res) {
-    req.session = null;
-    req.session.user = null;
-
-    res.redirect('/');
-});
+// router.post('/logout', function(req, res) {
+//     req.session = null;
+//     req.session.user = null;
+//
+//     res.redirect('/');
+// });
 
 //======== POST ROUTES ========= //
 
