@@ -14,8 +14,8 @@ router.get('/', function(req, res) {
     res.render('home');
 });
 
-router.get('/login', function(req, res){
-	res.render('login');
+router.get('/profile', function(req, res){
+    res.render('profile');
 });
 
 //======== POST ROUTES ========= //

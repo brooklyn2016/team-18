@@ -1,7 +1,7 @@
 var express = require('express');
 
 var app = express();
-
+var session = require('client-sessions');
 var bodyParser  = require('body-parser');
 var path = require('path');
 var stormpath = require('express-stormpath');
@@ -13,10 +13,35 @@ var routes = require('./routes/index');
 app.set('view engine','ejs');
 app.set('views', path.join(__dirname,'views'));
 app.use(express.static('./public'));
+app.use(session({
+    cookieName: 'session',
+    secret: 'random_string_goes_here',
+    httpOnly: false,
+    secure: false,
+    ephemeral: true,
+    resave: false
+}));
 app.use(stormpath.init(app, {
+    web: {
+        logout: {
+            enabled: true
+        }
+    },
+    expand: {
+        customData: true,
+    },
     apiKey: {
         id: process.env.STORMPATH_CLIENT_APIKEY_ID,
         secret: process.env.STORMPATH_CLIENT_APIKEY_SECRET
+    },
+    postLoginHandler: function (account, req, res) {
+        req.session.user = account;
+        console.log(account);
+        res.redirect('/profile');
+    },
+    postLogoutHandler: function (account, req, res) {
+        req.session.reset();
+        res.redirect('/');
     }
 }));
 
@@ -37,6 +62,7 @@ mongoose.connect('mongodb://localhost/bric', function(err, res){
 });
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/', routes);
+app.use('/profile', stormpath.loginRequired, routes);
 
 // app.get('/', function(req, res) {
 //     res.render('home');
